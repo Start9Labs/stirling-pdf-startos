@@ -117,7 +117,8 @@ export const main = sdk.setupMain(async ({ effects }) => {
           // StartOS runs its own PID 1 in the subcontainer, so tini must
           // register as a subreaper to reap the converters Stirling PDF spawns.
           TINI_SUBREAPER: '1',
-          // Upstream replaces JAVA_TOOL_OPTIONS; optional AOT training clears it.
+          // -XX:-UseBASE64Intrinsics mitigates Java4Shell (CVE-2026-114938).
+          // Upstream overwrites JAVA_TOOL_OPTIONS.
           JAVA_CUSTOM_OPTS: `-Xms${initialHeapMiB}m -Xmx${maxHeapMiB}m -XX:-UseBASE64Intrinsics`,
           DISABLE_ADDITIONAL_FEATURES: 'false',
           SECURITY_ENABLELOGIN: 'true',

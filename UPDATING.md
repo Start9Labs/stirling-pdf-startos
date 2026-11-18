@@ -20,6 +20,6 @@ This package runs the official `stirlingtools/stirling-pdf` standard image unmod
 - Re-read upstream's `scripts/init.sh` and `scripts/init-without-ocr.sh`, which the package leans on in four places:
   - `TESSDATA_PREFIX` must still be the path in `tessdataDir` (`startos/utils.ts`). The volume is mounted over that directory and the `tessdata-seed` oneshot copies the image's languages out of it, so a moved path — a new Tesseract major version changes it — either stops the service at the oneshot or silently sends OCR back to the image's own languages.
   - `PUID` and `PGID` must still be image environment variables naming the ids Stirling PDF runs as; the oneshot chowns `tessdata/` to them.
-  - `JAVA_CUSTOM_OPTS` must still be appended after the computed memory flags, which is what lets the package's `-Xmx` win. The startup log line `running with JAVA_TOOL_OPTIONS=` shows the result.
+  - `JAVA_CUSTOM_OPTS` must still be appended after the computed memory flags, which is what lets the package's `-Xmx` win; it also carries `-XX:-UseBASE64Intrinsics`. The JVM's own `Picked up JAVA_TOOL_OPTIONS:` line at startup shows the result.
   - The JVM options must still write heap dumps to `/configs/heap_dumps`, the path `startos/backups.ts` excludes.
 - Confirm server file storage still writes under `/storage` (`storage.local.basePath` in upstream's `settings.yml.template`, and the `/app/storage` symlink in `docker/embedded/Dockerfile`).

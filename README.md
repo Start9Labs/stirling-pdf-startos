@@ -44,7 +44,7 @@ One subcontainer runs, named `stirling-pdf`. Attach to it with `start-cli packag
 
 The Java heap is capped through `JAVA_CUSTOM_OPTS` at the lower of 3 GB and half the memory visible to the service. This keeps the 3 GB ceiling on larger servers without giving the JVM more memory than a smaller server can support. A job that needs more fails with an out-of-memory error, which makes the JVM exit and the service restart; the dump it leaves is in `configs/heap_dumps/`, outside backups.
 
-The package appends `-XX:-UseBASE64Intrinsics` to `JAVA_CUSTOM_OPTS`, preserving the managed heap and upstream base JVM options. This mitigates CVE-2026-114938 on affected AVX-512 x86 CPUs; ARM64 is unaffected and application-specific exploitability is unverified. Upstream replaces `JAVA_TOOL_OPTIONS`, so setting that variable alone is ineffective. Optional AOT training clears JVM option variables and is **not covered** by this mitigation; AOT remains off by default and is not configured by this package.
+`JAVA_CUSTOM_OPTS` also carries `-XX:-UseBASE64Intrinsics`, which mitigates Java4Shell (CVE-2026-114938) on eligible x86-64 CPUs; ARM64 is not affected. Upstream's init script overwrites `JAVA_TOOL_OPTIONS` with its own base options followed by `JAVA_CUSTOM_OPTS`, so setting `JAVA_TOOL_OPTIONS` directly has no effect. Remove the flag once the packaged image is verified to carry a patched JDK.
 
 StartOS runs its own init as PID 1 inside the subcontainer, so tini never is. The package sets `TINI_SUBREAPER` so that tini still adopts and reaps the converter processes Stirling PDF spawns — LibreOffice, OCRmyPDF, Ghostscript, Calibre — instead of leaving them as zombies.
 
