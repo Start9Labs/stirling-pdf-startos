@@ -51,3 +51,7 @@ Leave the **Tessdata Directory** field on that page empty. Pointing it somewhere
   If you change the `admin` password from inside Stirling PDF instead, this action can no longer replace it — StartOS no longer knows the current one, and the action will tell you so. Use Stirling PDF's own account tools from then on.
 - **Configure SMTP** — chooses how Stirling PDF sends email: not at all, through the StartOS system SMTP settings, or through a server you enter here. Saving restarts Stirling PDF.
 - **Enable Server File Storage** / **Disable Server File Storage** — one action that switches between the two; its name tells you which way it will go. Switching it off keeps the files already stored, but nobody can open them until it is on again. Stirling PDF restarts.
+
+## JVM security mitigation
+
+The package disables JVM Base64 intrinsics to mitigate CVE-2026-114938 on affected AVX-512 x86 CPUs. ARM64 is unaffected; exploitation through Stirling PDF has not been verified. Existing memory limits remain unchanged. Optional upstream AOT training is not covered; it is off by default and is not configured by this package.
