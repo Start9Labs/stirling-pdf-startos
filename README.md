@@ -44,6 +44,8 @@ One subcontainer runs, named `stirling-pdf`. Attach to it with `start-cli packag
 
 The Java heap is capped through `JAVA_CUSTOM_OPTS` at the lower of 3 GB and half the memory visible to the service. This keeps the 3 GB ceiling on larger servers without giving the JVM more memory than a smaller server can support. A job that needs more fails with an out-of-memory error, which makes the JVM exit and the service restart; the dump it leaves is in `configs/heap_dumps/`, outside backups.
 
+`JAVA_CUSTOM_OPTS` also carries `-XX:-UseBASE64Intrinsics`, which mitigates Java4Shell (CVE-2026-114938) on eligible x86-64 CPUs; ARM64 is not affected. Upstream's init script overwrites `JAVA_TOOL_OPTIONS` with its own base options followed by `JAVA_CUSTOM_OPTS`, so setting `JAVA_TOOL_OPTIONS` directly has no effect. Remove the flag once the packaged image is verified to carry a patched JDK.
+
 StartOS runs its own init as PID 1 inside the subcontainer, so tini never is. The package sets `TINI_SUBREAPER` so that tini still adopts and reaps the converter processes Stirling PDF spawns — LibreOffice, OCRmyPDF, Ghostscript, Calibre — instead of leaving them as zombies.
 
 ## Volume and Data Layout
