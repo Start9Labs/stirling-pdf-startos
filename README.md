@@ -182,6 +182,7 @@ A restored instance is immediately usable and needs nothing re-entered — the a
 7. **Server file storage is switched from StartOS, not from inside Stirling PDF** — see [Actions](#actions).
 8. **Share links need an address the package cannot supply.** Upstream only issues them once `system.frontendUrl` is set, and a StartOS service has no single address — the admin has to enter the one their users reach Stirling PDF on. Sharing a stored file with a named user needs no such setting.
 9. **`/usr/share/tessdata` is not a drop-in directory for OCR languages.** Upstream's Docker instructions for adding a language by hand do not apply; languages are added from the **Advanced** settings instead — see [Volume and Data Layout](#volume-and-data-layout).
+10. **Upstream's first-run setup wizard never appears.** `SYSTEM_SETUPCOMPLETED` is re-asserted on every launch: the package already creates the admin account, the wizard's email, analytics and file storage choices would be overridden by the variables above, and its closing restart cannot happen inside a container. The settings it offers are on Stirling PDF's own settings pages.
 
 ## Quick Reference for AI Consumers
 
@@ -204,6 +205,7 @@ startos_managed_env_vars:
   - STORAGE_ENABLED
   - SYSTEM_GOOGLEVISIBILITY
   - SYSTEM_ENABLEANALYTICS
+  - SYSTEM_SETUPCOMPLETED
   - SHOW_SURVEY
   - METRICS_ENABLED
   - SPRINGDOC_API_DOCS_ENABLED
