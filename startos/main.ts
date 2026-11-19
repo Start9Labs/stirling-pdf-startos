@@ -127,6 +127,7 @@ export const main = sdk.setupMain(async ({ effects }) => {
           STORAGE_ENABLED: String(store.serverFileStorage),
           SYSTEM_GOOGLEVISIBILITY: 'false',
           SYSTEM_ENABLEANALYTICS: 'false',
+          SYSTEM_SETUPCOMPLETED: 'true',
           SHOW_SURVEY: 'false',
           METRICS_ENABLED: 'true',
           SPRINGDOC_API_DOCS_ENABLED: 'false',
