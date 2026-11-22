@@ -15,7 +15,7 @@ export const manifest = setupManifest({
     stirling: {
       source: {
         dockerBuild: {
-          buildArgs: { IMAGE: 'stirlingtools/stirling-pdf:3.4.0' },
+          buildArgs: { IMAGE: 'stirlingtools/stirling-pdf:3.5.0' },
         },
       },
       arch: ['x86_64', 'aarch64'],

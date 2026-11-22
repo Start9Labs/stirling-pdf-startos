@@ -46,7 +46,7 @@ The Java heap is capped through `JAVA_CUSTOM_OPTS` at the lower of 3 GB and half
 
 `JAVA_CUSTOM_OPTS` also carries `-XX:-UseBASE64Intrinsics`, which mitigates Java4Shell (CVE-2026-114938) on eligible x86-64 CPUs; ARM64 is not affected. Upstream's init script overwrites `JAVA_TOOL_OPTIONS` with its own base options followed by `JAVA_CUSTOM_OPTS`, so setting `JAVA_TOOL_OPTIONS` directly has no effect. Remove the flag once the packaged image is verified to carry a patched JDK.
 
-StartOS runs its own init as PID 1 inside the subcontainer, so tini never is. The package sets `TINI_SUBREAPER` so that tini still adopts and reaps the converter processes Stirling PDF spawns — LibreOffice, OCRmyPDF, Ghostscript, Calibre — instead of leaving them as zombies.
+StartOS runs its own init as PID 1 inside the subcontainer, so tini never is. The package sets `TINI_SUBREAPER` so that tini still adopts and reaps the converter processes Stirling PDF spawns — OCRmyPDF, Tesseract, Ghostscript, qpdf — instead of leaving them as zombies.
 
 ## Volume and Data Layout
 
