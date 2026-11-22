@@ -1,53 +1,58 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '3.4.0:0',
+  version: '3.5.0:0',
   releaseNotes: {
-    en_US: `Updated Stirling PDF to 3.4.0.
+    en_US: `Updated Stirling PDF to 3.5.0.
 
-- New: edit text directly in the viewer, with better font matching on scanned documents and smaller saved files
-- New: Check PDF accessibility tool, reporting against PDF/UA-1 or PDF/UA-2
-- New: custom page size in Scale Pages, odd-even merge in Reorganize Pages, and pixel comparison in Compare
-- Fix: page numbers placed wrongly on rotated or cropped pages
-- Removed: conversion between PDF and PostScript, EPS, PCL or XPS
+- New: Office, HTML and ebook files are converted by Stirling PDF's own converter, faster and with better quality
+- New: an admin setting to limit how many Office conversions run at once
+- Fix: filled form fields shown twice in the viewer, and form values invisible in dark mode
+- Fix: thumbnail sidebar stuck on "Loading..." after applying changes
+- Removed: PDF to .doc (Word 97-2003) output; use .docx or .odt instead. Automations and pipelines asking for .doc now fail
+- Removed: conversion from .wpd, .wps, .lwp, .abw, .hwp and .xps files
 
-[Full release notes](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v3.4.0)`,
-    es_ES: `Stirling PDF actualizado a 3.4.0.
+[Full release notes](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v3.5.0)`,
+    es_ES: `Stirling PDF actualizado a 3.5.0.
 
-- Nuevo: edición de texto directamente en el visor, con mejor coincidencia de fuentes en documentos escaneados y archivos guardados más pequeños
-- Nuevo: herramienta Comprobar accesibilidad del PDF, con informes según PDF/UA-1 o PDF/UA-2
-- Nuevo: tamaño de página personalizado en Escalar páginas, combinación de pares e impares en Reorganizar páginas y comparación por píxeles en Comparar
-- Corrección: números de página mal colocados en páginas giradas o recortadas
-- Eliminado: la conversión entre PDF y PostScript, EPS, PCL o XPS
+- Nuevo: los archivos de Office, HTML y libros electrónicos se convierten con el conversor propio de Stirling PDF, más rápido y con mejor calidad
+- Nuevo: un ajuste de administración para limitar cuántas conversiones de Office se ejecutan a la vez
+- Corrección: campos de formulario rellenados que aparecían dos veces en el visor y valores de formulario invisibles en modo oscuro
+- Corrección: la barra lateral de miniaturas se quedaba en "Cargando..." tras aplicar cambios
+- Eliminado: la salida de PDF a .doc (Word 97-2003); usa .docx u .odt. Las automatizaciones y canalizaciones que piden .doc ahora fallan
+- Eliminado: la conversión desde archivos .wpd, .wps, .lwp, .abw, .hwp y .xps
 
-[Full release notes](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v3.4.0)`,
-    de_DE: `Stirling PDF auf 3.4.0 aktualisiert.
+[Full release notes](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v3.5.0)`,
+    de_DE: `Stirling PDF auf 3.5.0 aktualisiert.
 
-- Neu: Text direkt im Viewer bearbeiten, mit besserer Schriftzuordnung bei gescannten Dokumenten und kleineren gespeicherten Dateien
-- Neu: Werkzeug zur Barrierefreiheitsprüfung von PDFs mit Berichten nach PDF/UA-1 oder PDF/UA-2
-- Neu: benutzerdefinierte Seitengröße beim Skalieren von Seiten, Gerade-Ungerade-Zusammenführung beim Neuordnen von Seiten und pixelgenauer Vergleich
-- Behoben: falsch platzierte Seitenzahlen auf gedrehten oder zugeschnittenen Seiten
-- Entfernt: die Konvertierung zwischen PDF und PostScript, EPS, PCL oder XPS
+- Neu: Office-, HTML- und E-Book-Dateien werden mit dem eigenen Konverter von Stirling PDF umgewandelt, schneller und in besserer Qualität
+- Neu: eine Admin-Einstellung, die begrenzt, wie viele Office-Konvertierungen gleichzeitig laufen
+- Behoben: ausgefüllte Formularfelder wurden im Viewer doppelt angezeigt, und Formularwerte waren im Dunkelmodus unsichtbar
+- Behoben: die Miniaturansicht-Seitenleiste blieb nach dem Anwenden von Änderungen bei "Wird geladen..." hängen
+- Entfernt: die Ausgabe von PDF als .doc (Word 97-2003); verwenden Sie stattdessen .docx oder .odt. Automatisierungen und Pipelines, die .doc anfordern, schlagen nun fehl
+- Entfernt: die Konvertierung von .wpd-, .wps-, .lwp-, .abw-, .hwp- und .xps-Dateien
 
-[Full release notes](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v3.4.0)`,
-    pl_PL: `Zaktualizowano Stirling PDF do wersji 3.4.0.
+[Full release notes](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v3.5.0)`,
+    pl_PL: `Zaktualizowano Stirling PDF do wersji 3.5.0.
 
-- Nowość: edycja tekstu bezpośrednio w przeglądarce dokumentu, z lepszym dopasowaniem czcionek w zeskanowanych dokumentach i mniejszymi zapisanymi plikami
-- Nowość: narzędzie do sprawdzania dostępności PDF z raportami według PDF/UA-1 lub PDF/UA-2
-- Nowość: własny rozmiar strony przy skalowaniu stron, scalanie stron parzystych i nieparzystych przy reorganizacji oraz porównywanie pikselowe
-- Poprawka: numery stron umieszczane w złym miejscu na obróconych lub przyciętych stronach
-- Usunięto: konwersję między PDF a PostScript, EPS, PCL lub XPS
+- Nowość: pliki Office, HTML i e-booki są konwertowane własnym konwerterem Stirling PDF, szybciej i w lepszej jakości
+- Nowość: ustawienie administratora ograniczające liczbę jednoczesnych konwersji Office
+- Poprawka: wypełnione pola formularzy wyświetlane podwójnie w przeglądarce oraz niewidoczne wartości formularzy w trybie ciemnym
+- Poprawka: pasek miniatur zawieszający się na "Ładowanie..." po zastosowaniu zmian
+- Usunięto: eksport PDF do .doc (Word 97-2003); użyj .docx lub .odt. Automatyzacje i potoki żądające .doc kończą się teraz błędem
+- Usunięto: konwersję z plików .wpd, .wps, .lwp, .abw, .hwp i .xps
 
-[Full release notes](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v3.4.0)`,
-    fr_FR: `Stirling PDF mis à jour vers la version 3.4.0.
+[Full release notes](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v3.5.0)`,
+    fr_FR: `Stirling PDF mis à jour vers la version 3.5.0.
 
-- Nouveau : modification du texte directement dans la visionneuse, avec une meilleure correspondance des polices sur les documents numérisés et des fichiers enregistrés plus légers
-- Nouveau : outil de vérification de l'accessibilité des PDF, avec rapports selon PDF/UA-1 ou PDF/UA-2
-- Nouveau : taille de page personnalisée pour la mise à l'échelle des pages, fusion pair-impair pour la réorganisation des pages et comparaison au pixel près
-- Correction : numéros de page mal placés sur les pages pivotées ou rognées
-- Supprimé : la conversion entre PDF et PostScript, EPS, PCL ou XPS
+- Nouveau : les fichiers Office, HTML et livres numériques sont convertis par le convertisseur propre à Stirling PDF, plus rapide et de meilleure qualité
+- Nouveau : un réglage d'administration pour limiter le nombre de conversions Office simultanées
+- Correction : champs de formulaire remplis affichés deux fois dans la visionneuse, et valeurs de formulaire invisibles en mode sombre
+- Correction : la barre latérale des miniatures restait bloquée sur « Chargement... » après l'application de modifications
+- Supprimé : la sortie PDF vers .doc (Word 97-2003) ; utilisez .docx ou .odt. Les automatisations et pipelines qui demandent .doc échouent désormais
+- Supprimé : la conversion depuis les fichiers .wpd, .wps, .lwp, .abw, .hwp et .xps
 
-[Full release notes](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v3.4.0)`,
+[Full release notes](https://github.com/Stirling-Tools/Stirling-PDF/releases/tag/v3.5.0)`,
   },
   migrations: {
     up: async () => {},
